@@ -1,4 +1,5 @@
 # experiment outputs
+*.pgm
 CNN_*.csv
 MLP_*.csv
 
