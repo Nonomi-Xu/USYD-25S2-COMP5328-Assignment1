@@ -1,0 +1,11 @@
+\maketitle
+
+Tutors: Vincent Qu, Ziming Hong\\
+
+Group members: YIYANG XU (540840166, yixu0702), KEXIN LIU(550132699,kliu0177) , YAQI MEI(541002619,ymei0081)\\
+
+\begin{abstract}
+
+Non-negative Matrix Factorization (NMF) is a widely used method for decomposing high-dimensional data into interpretable non-negative factors, particularly in applications such as face image analysis. However, its performance often deteriorates in the presence of noise \cite{kang2023robustness}. In this study, we investigate the robustness of NMF under salt-and-pepper impulse noise. Specifically, we compare the classical $L_2$-norm based NMF, which minimizes Frobenius norm reconstruction error, with the more robust $L_{2,1}$-norm based NMF, which aggregates per-sample errors using the $\ell_{2,1}$ mixed norm \cite{kong2011robust,lu2016projective}. Experiments are conducted on two benchmark datasets (ORL and Extended Yale B), under varying noise densities $p$ and salt-to-pepper ratios $r$. Performance is evaluated using the Relative Reconstruction Error (RRE), averaged over multiple trials. Results demonstrate that although both algorithms degrade with increasing noise, the $L_{2,1}$-NMF consistently achieves lower RRE, confirming its superior resilience to impulsive noise \cite{wu2018manifold,diaz2021analysis}.
+
+\end{abstract}

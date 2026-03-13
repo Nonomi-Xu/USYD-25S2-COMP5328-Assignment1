@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+\usepackage[a4paper, margin=20mm, marginparwidth = 1.8cm]{geometry}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{fontspec}
+\usepackage{booktabs}
+
+\usepackage{url}
+\usepackage{appendix}
+\usepackage{subfigure}
+\usepackage{bm}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{indentfirst}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{blue},
+    commentstyle=\color{gray},
+    stringstyle=\color{red},
+    numbers=left,
+    numberstyle=\tiny,
+    breaklines=true
+}
+
+\linespread{1.15}
+
+\setmainfont{Times New Roman}
+\pagenumbering{roman}
+
+\begin{document}
+
+
+\input{title}
+
+\pagenumbering{arabic}
+\input{abstract}
+
+\section{Introduction}
+\input{introduction}
+
+\section{Related work}
+\input{related work}
+
+\section{Methods}
+\input{methods}
+
+\section{Experiment}
+\input{experiment}
+
+\section{Conclusion}
+\input{conclusion}
+\pagebreak
+
+\bibliography{bib.bib}
+\bibliographystyle{ieeetr}
+
+\pagebreak
+
+\section*{Appendix}
+\input{appendix}
+
+
+\end{document}

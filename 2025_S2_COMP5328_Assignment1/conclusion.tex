@@ -1,0 +1,44 @@
+\subsection{Summary of work}
+
+The main goal of this experiment is to study the robustness of different NMF methods in noisy environments. We used the $L_2$ NMF method and the $L_{2,1}$ norm based NMF method to study the performance of the datasets ORL and YaleB in the salt and pepper noise environment. We used the indicators Relative Reconstruction Error(RRE) and Accuracy/Normalized Mutual Information(Acc/NMI) to evaluate our results.
+
+\subsection{Key findings}
+
+From the experimental results, several trends are evident. 
+First, both $L_2$ and $L_{2,1}$ NMF algorithms converge stably under all tested noise levels, but their performance differs across datasets and noise intensities. 
+On the smaller ORL dataset, the $L_{2,1}$-norm NMF generally achieves lower reconstruction error (RRE) and slightly better clustering accuracy under low noise conditions, confirming its robustness to impulsive salt-and-pepper corruption. 
+On the larger YaleB dataset, the two algorithms perform comparably in terms of RRE, while $L_{2,1}$ NMF shows slightly higher clustering accuracy when the noise ratio is moderate. 
+As the noise proportion increases, both methods show clear degradation in accuracy and normalized mutual information (NMI), though $L_{2,1}$ tends to maintain more stable reconstruction performance. 
+Overall, noise level has a strong and consistent impact on both algorithms, especially on the larger YaleB dataset.
+
+\subsection{Interpretation and Insights}
+
+The comparative results highlight complementary strengths of the two algorithms. 
+The $L_{2,1}$-norm NMF demonstrates stronger robustness to sparse, high-intensity noise, as its row-sparse penalty suppresses the influence of corrupted samples, explaining its lower reconstruction errors on ORL. 
+However, the $L_2$-norm NMF tends to preserve more global structure, which benefits clustering on large-scale datasets such as YaleB when the noise distribution is relatively uniform. 
+These observations are consistent with previous findings \cite{Zeng2023RobustnessThreeNMF, Shen2022AdaptiveWeightedNMF, Liu2022RLNMF_AG}, indicating that robust NMF variants are advantageous under strong impulsive noise but not necessarily superior for clean or weakly corrupted data. 
+In summary, $L_{2,1}$ is preferable when robustness is the main goal, whereas $L_2$ remains effective for large, structured datasets where noise is moderate and the focus is clustering performance.
+
+\subsection{Limitations and Future Work}
+
+We encountered many problems in our work, including:
+
+\begin{itemize}
+    \item The computational complexity is high, the operation time is long, and the convergence speed is slow.
+    \item Few types of noise were tested. 
+    \item The NMF method is highly sensitive to parameters.
+\end{itemize}
+
+\bigskip
+
+We consider the following methods to improve the next step of the experiment:
+
+\begin{itemize}
+    \item Combined with the $L_1$ norm, a hybrid model is formed to evaluate its robustness.
+    \item Introducing sparsity or graph regularization
+    \item Use larger-scale or online updated NMF algorithms
+\end{itemize}
+
+\subsection{Closing Statement}
+
+In summary, this paper verifies the robustness advantage of $L_{2,1}$ norm in non-negative matrix factorization through the study of $L_2$ NMF method and $L_{2,1}$ NMF method. The $L_{2,1}$ method can effectively maintain data structure and clustering performance in a high-noise environment. It provides a reliable theoretical and practical basis for real-world projects such as face recognition.

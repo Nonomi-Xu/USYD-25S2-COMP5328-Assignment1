@@ -1,0 +1,31 @@
+
+\noindent 
+
+Non-negative Matrix Factorization (NMF) is a popular unsupervised learning method that factorizes a non-negative data matrix into two lower-dimensional non-negative matrices. Its ability to handle sparsity and extract meaningful features has made it widely used in applications such as image analysis, text mining, and bioinformatics \cite{diaz2021analysis}. Formally, given a non-negative data matrix $X \in \mathbb{R}^{m \times n}_{\ge 0}$, the goal is to approximate it as:
+\begin{equation}
+    X \approx WH,
+\end{equation}
+where $W \in \mathbb{R}^{m \times k}_{\ge 0}$ represents the basis matrix and $H \in \mathbb{R}^{k \times n}_{\ge 0}$ represents the coefficient (or weight) matrix. 
+
+The standard NMF objective function minimizes the Frobenius norm of the reconstruction error:
+\begin{equation}
+    \min_{W, H \ge 0} \; \|X - WH\|_{F}^{2}, \label{eq.standred NMF}
+\end{equation}
+where $\|\cdot\|_{F}$ denotes the Frobenius norm. This corresponds to the classical $L_2$-norm NMF \cite{kang2023robustness}.
+
+A common optimization approach is the \textit{Multiplicative Update Rule} (MUR), which iteratively updates $R$ and $D$ with multiplicative factors to guarantee non-negativity:
+\begin{equation}
+    W_{ij} \leftarrow W_{ij} \frac{(XH^{T})_{ij}}{(WHH^{T})_{ij}}, 
+\end{equation}
+\begin{equation}
+    H_{ij} \leftarrow H_{ij} \frac{(W^{T}X)_{ij}}{(W^{T}WH)_{ij}}.
+\end{equation}
+These update rules are widely used in $L_2$-NMF because of their simplicity and convergence properties \cite{diaz2021analysis}.
+
+However, $L_2$-NMF is highly sensitive to outliers because the squared error amplifies large deviations. To address this, robust variants such as $L_{2,1}$-NMF have been developed. The $L_{2,1}$-norm objective function is formulated as:
+\begin{equation}
+    \min_{W, H \ge 0} \; \|X - WH\|_{2,1},
+\end{equation}
+where $\|M\|_{2,1} = \sum_{j=1}^{n} \sqrt{\sum_{i=1}^{m} M_{ij}^{2}}$. This formulation measures the reconstruction error on a per-sample basis (using $L_2$ norm) and then aggregates errors across samples using an $L_1$ norm. The result is that isolated large errors (e.g., salt-and-pepper noise pixels) have reduced influence on the global optimization, making the algorithm more robust \cite{kong2011robust,lu2016projective}.
+
+Empirical studies have confirmed that $L_{2,1}$-NMF outperforms $L_2$-NMF in scenarios with heavy noise or outliers, yielding lower reconstruction errors and more stable features in applications such as clustering and face recognition \cite{wu2018manifold,kang2023robustness}. Recent analyses also highlight its effectiveness in handling both pixel-level corruption and sample-level anomalies, making it suitable for real-world noisy datasets \cite{diaz2021analysis}.

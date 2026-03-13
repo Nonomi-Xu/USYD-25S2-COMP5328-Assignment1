@@ -1,0 +1,153 @@
+\noindent \textbf{How to run the code?}
+
+Our code needs to modify the local address of the data set at the beginning of the code to the root you need. \texttt{root\_ORL} refers to the root of ORL dataset. \texttt{root\_YaleB} refers to the root of YaleB dataset.
+
+Then just run all code.
+
+\begin{lstlisting}[language=Python]
+root_ORL = 'data/ORL'
+img_resize_ORL = (37,30)
+root_YaleB = 'data/CroppedYaleB'
+img_resize_YaleB = (48,42)
+max_iter_nmf = 5000
+max_iter_L21_nmf = 5000
+\end{lstlisting}
+
+\bigskip
+
+\noindent\textbf{Contribution of each group member}
+
+After group coordination, the three of us split the workload of coding and reporting roughly evenly, and in terms of group contribution, we each completed one-third of the total task.
+
+\bigskip
+
+\noindent\textbf{Results Summary}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c c c c c c c}
+\hline
+\textbf{pr} & \textbf{L2} & \textbf{L2\_mean} & \textbf{L2\_std} & \textbf{L21} & \textbf{L21\_mean} & \textbf{L21\_std} \\
+\hline
+p=0.2, r=0.1 & L2 & 0.270295 & 0.000517 & L21 & 0.269087 & 0.000582 \\
+p=0.2, r=0.4 & L2 & 0.248753 & 0.000753 & L21 & 0.248951 & 0.000938 \\
+p=0.2, r=0.7 & L2 & 0.281011 & 0.000697 & L21 & 0.280894 & 0.000928 \\
+p=0.4, r=0.1 & L2 & 0.414936 & 0.000245 & L21 & 0.414607 & 0.000931 \\
+p=0.4, r=0.4 & L2 & 0.347132 & 0.000819 & L21 & 0.344625 & 0.002822 \\
+p=0.4, r=0.7 & L2 & 0.421825 & 0.001625 & L21 & 0.420183 & 0.002430 \\
+p=0.6, r=0.1 & L2 & 0.556032 & 0.000637 & L21 & 0.554477 & 0.006578 \\
+p=0.6, r=0.4 & L2 & 0.427719 & 0.001062 & L21 & 0.410944 & 0.007375 \\
+p=0.6, r=0.7 & L2 & 0.546857 & 0.001721 & L21 & 0.546262 & 0.001395 \\
+\hline
+\end{tabular}
+\caption{Dataset "ORL" RRE Summary}
+\label{tab:orl_rre}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c c c c c c c}
+\hline
+\textbf{pr} & \textbf{L2} & \textbf{L2\_mean} & \textbf{L2\_std} & \textbf{L21} & \textbf{L21\_mean} & \textbf{L21\_std} \\
+\hline
+p=0.2, r=0.1 & L2 & 0.257389 & 0.000547 & L21 & 0.256240 & 0.000320 \\
+p=0.2, r=0.4 & L2 & 0.261670 & 0.000199 & L21 & 0.261725 & 0.000645 \\
+p=0.2, r=0.7 & L2 & 0.355032 & 0.000568 & L21 & 0.354162 & 0.000653 \\
+p=0.4, r=0.1 & L2 & 0.394050 & 0.000305 & L21 & 0.392321 & 0.000620 \\
+p=0.4, r=0.4 & L2 & 0.405109 & 0.000638 & L21 & 0.404892 & 0.000726 \\
+p=0.4, r=0.7 & L2 & 0.616722 & 0.001437 & L21 & 0.615216 & 0.001507 \\
+p=0.6, r=0.1 & L2 & 0.545179 & 0.000218 & L21 & 0.544295 & 0.000264 \\
+p=0.6, r=0.4 & L2 & 0.551301 & 0.000974 & L21 & 0.551347 & 0.001026 \\
+p=0.6, r=0.7 & L2 & 0.875648 & 0.002119 & L21 & 0.875193 & 0.002010 \\
+\hline
+\end{tabular}
+\caption{Dataset "YaleB" RRE Summary}
+\label{tab:yaleb_rre}
+\end{table}
+
+\begin{table}[p]
+\centering
+\begin{tabular}{c c c c c c c}
+\hline
+\textbf{pr} & \textbf{L2} & \textbf{L2\_mean} & \textbf{L2\_std} & \textbf{L21} & \textbf{L21\_mean} & \textbf{L21\_std} \\
+\hline
+p=0.2, r=0.1 & L2 & 0.5278 & 0.0398 & L21 & 0.5339 & 0.0092 \\
+p=0.2, r=0.4 & L2 & 0.4806 & 0.0178 & L21 & 0.4628 & 0.0286 \\
+p=0.2, r=0.7 & L2 & 0.4617 & 0.0189 & L21 & 0.4406 & 0.0195 \\
+p=0.4, r=0.1 & L2 & 0.2994 & 0.0183 & L21 & 0.3083 & 0.0174 \\
+p=0.4, r=0.4 & L2 & 0.2494 & 0.0116 & L21 & 0.2483 & 0.0092 \\
+p=0.4, r=0.7 & L2 & 0.2594 & 0.0092 & L21 & 0.2522 & 0.0126 \\
+p=0.6, r=0.1 & L2 & 0.2189 & 0.0095 & L21 & 0.2089 & 0.0087 \\
+p=0.6, r=0.4 & L2 & 0.1956 & 0.0062 & L21 & 0.1933 & 0.0084 \\
+p=0.6, r=0.7 & L2 & 0.1883 & 0.0021 & L21 & 0.2000 & 0.0088 \\
+\hline
+\end{tabular}
+\caption{Dataset "ORL" Accuracy Summary}
+\label{tab:orl_acc}
+\end{table}
+
+\begin{table}[p]
+\centering
+\begin{tabular}{c c c c c c c}
+\hline
+\textbf{pr} & \textbf{L2} & \textbf{L2\_mean} & \textbf{L2\_std} & \textbf{L21} & \textbf{L21\_mean} & \textbf{L21\_std} \\
+\hline
+p=0.2, r=0.1 & L2 & 0.2242 & 0.0119 & L21 & 0.2065 & 0.0145 \\
+p=0.2, r=0.4 & L2 & 0.2076 & 0.0112 & L21 & 0.2077 & 0.0065 \\
+p=0.2, r=0.7 & L2 & 0.1971 & 0.0107 & L21 & 0.2149 & 0.0053 \\
+p=0.4, r=0.1 & L2 & 0.1748 & 0.0120 & L21 & 0.1750 & 0.0084 \\
+p=0.4, r=0.4 & L2 & 0.1474 & 0.0045 & L21 & 0.1494 & 0.0030 \\
+p=0.4, r=0.7 & L2 & 0.1394 & 0.0091 & L21 & 0.1425 & 0.0017 \\
+p=0.6, r=0.1 & L2 & 0.0992 & 0.0044 & L21 & 0.1036 & 0.0033 \\
+p=0.6, r=0.4 & L2 & 0.0904 & 0.0026 & L21 & 0.0907 & 0.0034 \\
+p=0.6, r=0.7 & L2 & 0.0903 & 0.0020 & L21 & 0.0901 & 0.0030 \\
+\hline
+\end{tabular}
+\caption{Dataset "YaleB" Accuracy Summary}
+\label{tab:yaleb_acc}
+\end{table}
+
+\begin{table}[p]
+\centering
+\begin{tabular}{c c c c c c c}
+\hline
+\textbf{pr} & \textbf{L2} & \textbf{L2\_mean} & \textbf{L2\_std} & \textbf{L21} & \textbf{L21\_mean} & \textbf{L21\_std} \\
+\hline
+p=0.2, r=0.1 & L2 & 0.6908 & 0.0303 & L21 & 0.6948 & 0.0076 \\
+p=0.2, r=0.4 & L2 & 0.6435 & 0.0104 & L21 & 0.6381 & 0.0289 \\
+p=0.2, r=0.7 & L2 & 0.6294 & 0.0144 & L21 & 0.6202 & 0.0137 \\
+p=0.4, r=0.1 & L2 & 0.4926 & 0.0159 & L21 & 0.4978 & 0.0120 \\
+p=0.4, r=0.4 & L2 & 0.4366 & 0.0175 & L21 & 0.4376 & 0.0141 \\
+p=0.4, r=0.7 & L2 & 0.4416 & 0.0152 & L21 & 0.4315 & 0.0205 \\
+p=0.6, r=0.1 & L2 & 0.3986 & 0.0095 & L21 & 0.3661 & 0.0123 \\
+p=0.6, r=0.4 & L2 & 0.3836 & 0.0080 & L21 & 0.3693 & 0.0075 \\
+p=0.6, r=0.7 & L2 & 0.3717 & 0.0129 & L21 & 0.3769 & 0.0168 \\
+\hline
+\end{tabular}
+\caption{Dataset "ORL" NMI Summary}
+\label{tab:orl_nmi}
+\end{table}
+
+\begin{table}[p]
+\centering
+\begin{tabular}{c c c c c c c}
+\hline
+\textbf{pr} & \textbf{L2} & \textbf{L2\_mean} & \textbf{L2\_std} & \textbf{L21} & \textbf{L21\_mean} & \textbf{L21\_std} \\
+\hline
+p=0.2, r=0.1 & L2 & 0.3074 & 0.0120 & L21 & 0.2910 & 0.0120 \\
+p=0.2, r=0.4 & L2 & 0.2885 & 0.0095 & L21 & 0.2824 & 0.0063 \\
+p=0.2, r=0.7 & L2 & 0.2849 & 0.0092 & L21 & 0.2903 & 0.0139 \\
+p=0.4, r=0.1 & L2 & 0.2308 & 0.0135 & L21 & 0.2282 & 0.0053 \\
+p=0.4, r=0.4 & L2 & 0.1880 & 0.0085 & L21 & 0.1900 & 0.0062 \\
+p=0.4, r=0.7 & L2 & 0.1721 & 0.0098 & L21 & 0.1718 & 0.0127 \\
+p=0.6, r=0.1 & L2 & 0.1091 & 0.0068 & L21 & 0.1164 & 0.0074 \\
+p=0.6, r=0.4 & L2 & 0.0921 & 0.0064 & L21 & 0.0909 & 0.0027 \\
+p=0.6, r=0.7 & L2 & 0.0931 & 0.0031 & L21 & 0.0905 & 0.0036 \\
+\hline
+\end{tabular}
+\caption{Dataset "YaleB" NMI Summary}
+\label{tab:yaleb_nmi}
+\end{table}
+
+
+

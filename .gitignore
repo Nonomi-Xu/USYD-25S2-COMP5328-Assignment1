@@ -1,0 +1,17 @@
+# experiment outputs
+CNN_*.csv
+MLP_*.csv
+
+# keras
+keras_tuning_results/
+*.h5
+
+# jupyter
+.ipynb_checkpoints/
+
+# python
+__pycache__/
+*.pyc
+
+# mac
+.DS_Store
